@@ -4,3 +4,6 @@ Sistema que tem como intuito gerenciar partidas de futebol de nível amador.
 
 Para iniciar um projeto Rails na cloud9 e deixar online é necessário usar esse comando:
 rails s -b $IP -p $PORT
+
+Link do projeto sendo hospedado pela Cloud9:
+https://peladeiros-pvspaiva.c9users.io/users/sign_up
