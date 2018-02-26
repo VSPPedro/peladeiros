@@ -1,2 +1,6 @@
 <h3>Seja bem-vindo ao sistema Peladeiros</h3>
-<%= link_to 'Quantidade de usuários registrados:', users_path %> <%= User.count %>
+<%= link_to 'Quantidade de usuários registrados:', users_path %> <%= User.count %> 
+
+<% if user_signed_in? && !current_user.approved %>
+  <br> <br> <br> <h4>A sua conta ainda não foi avaliada pelo administrador do sistema.</h4>
+<% end %>
