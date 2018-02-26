@@ -1,10 +1,43 @@
 <div class="container">
   <div class="row">
-    <h3>Usuários</h3>
+    <h3>Administradores do Sistema</h3>
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @admins.each do |user| %>
+            <tr>
+              <%= render user %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h3>Usuários Aprovados</h3>
     <div class="column">
       <table class="table">
         <tbody>
           <% @users.each do |user| %>
+            <tr>
+              <%= render user %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h3>Usuários Pendentes</h3>
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @pending_users.each do |user| %>
             <tr>
               <%= render user %>
             </tr>
