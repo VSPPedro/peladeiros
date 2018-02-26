@@ -15,4 +15,4 @@ Entrar no Shell do MySQL no cloud9:
 mysql-ctl cli
 
 Reiniciar banco de dados
-rake db:drop rake db:create rake db:migrate rake db:seed
+rake db:drop db:create db:migrate db:seed
