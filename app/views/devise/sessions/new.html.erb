@@ -11,9 +11,9 @@
     </div>
     <div class="form-group">
       <%- if devise_mapping.recoverable? %>
-        <%= link_to "Forgot password?", new_password_path(resource_name), class: 'right' %>
+        <%= link_to "Esqueceu a senha?", new_password_path(resource_name), class: 'right' %>
       <% end -%>
-      <%= f.label :password %>
+      <%= f.label 'Senha' %>
       <%= f.password_field :password, class: 'form-control' %>
     </div>
       <%= f.submit 'Sign in', :class => 'button right' %>
