@@ -1,4 +1,4 @@
-Projeto da disciplina de RAD
+## Projeto da disciplina de RAD
 
 Sistema que tem como intuito gerenciar partidas de futebol de nível amador.
 
@@ -7,3 +7,9 @@ rails s -b $IP -p $PORT
 
 Link do projeto sendo hospedado pela Cloud9:
 https://peladeiros-pvspaiva.c9users.io/users/sign_up
+
+Iniciar MySQL database no cloud9:
+mysql-ctl start
+
+Entrar no Shell do MySQL no cloud9:
+mysql-ctl cli
