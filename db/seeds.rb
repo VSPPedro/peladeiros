@@ -17,3 +17,13 @@ admin_array = [
 admin_array.each do |nome, email| 
     User.create!(email: email, name: nome, admin: true, approved: true, password: '123123', password_confirmation: '123123')
 end
+
+puts 'Inserindo usuários aprovados por administradores'
+54.times do
+    User.create!(email: Faker::Internet.email, name: Faker::Name.name, approved: true, password: '123123', password_confirmation: '123123')
+end
+
+puts 'Inserindo usuários não aprovados por administradores'
+9.times do
+    User.create!(email: Faker::Internet.email, name: Faker::Name.name, password: '123123', password_confirmation: '123123')
+end
