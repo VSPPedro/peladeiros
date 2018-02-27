@@ -13,5 +13,21 @@ class UsersController < ApplicationController
       redirect_to :back, :alert => "Acesso negado. Apenas os administradores podem ver os dados de outros usuários."
     end
   end
-
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    respond_to do |format|
+      if @user.update_attributes(params.require(:user).permit(:name, :campus, :approved))
+        format.html { redirect_to @user, notice: 'Usuário foi atualizado com sucesso.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end

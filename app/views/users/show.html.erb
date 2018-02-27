@@ -1,3 +1,11 @@
 <h3>Usuário</h3>
 <p>Nome: <%= @user.name if @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+
+<% if @user.campus %>
+  <p>Campus: <%= @user.campus %></p>
+<% end %>
+
+<% if user_signed_in? && current_user.admin %>
+    <%= link_to 'Editar usuário', edit_user_path  %>
+<% end %>
