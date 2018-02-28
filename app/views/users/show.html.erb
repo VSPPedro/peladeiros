@@ -6,6 +6,11 @@
   <p>Campus: <%= @user.campus %></p>
 <% end %>
 
+<% if user_signed_in? && !current_user.approved %>
+  <br>
+  <h4>A sua conta ainda não foi avaliada pelo administrador do sistema.</h4>
+<% end %>
+
 <% if user_signed_in? && current_user.admin %>
     <%= link_to 'Editar usuário', edit_user_path  %>
 <% end %>
