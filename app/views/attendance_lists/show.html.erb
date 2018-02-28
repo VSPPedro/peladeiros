@@ -1,24 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Nome da partida: <%= @attendance_list.name %></h2>
+
+<br>
+
 <p>
-  <strong>Openess:</strong>
-  <%= @attendance_list.openess %>
+  <strong>Iníco das inscrições:</strong>
+  <%= l @attendance_list.openess %>
 </p>
 
 <p>
-  <strong>Closure:</strong>
-  <%= @attendance_list.closure %>
+  <strong>Fechamento das inscrições:</strong>
+  <%= l @attendance_list.closure %>
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @attendance_list.name %>
+  <strong>Local:</strong>
+  <%= @attendance_list.local %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @attendance_list.user %>
+  <strong>Início da partida:</strong>
+  <%= l @attendance_list.start %>
 </p>
 
-<%= link_to 'Edit', edit_attendance_list_path(@attendance_list) %> |
-<%= link_to 'Back', attendance_lists_path %>
+<% if current_user.admin %>
+  <%= link_to 'Editar', edit_attendance_list_path(@attendance_list) %> |
+<% end %>
+
+<%= link_to 'Voltar', attendance_lists_path %>

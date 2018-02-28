@@ -1,28 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Attendance Lists</h1>
+<h1>Partidas com inscrições abertas</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Openess</th>
-      <th>Closure</th>
-      <th>Name</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>Título</th>
+      <th>Iníco das inscrições</th>
+      <th>Fechamento das inscrições</th>
+      <th>Local</th>
+      <th>Início da partida</th>
+      <% if current_user.admin %>
+        <th colspan="3"></th>
+      <% end %>
     </tr>
   </thead>
 
   <tbody>
-    <% @attendance_lists.each do |attendance_list| %>
+    <% @attendance_lists_open.each do |attendance_list| %>
       <tr>
-        <td><%= attendance_list.openess %></td>
-        <td><%= attendance_list.closure %></td>
         <td><%= attendance_list.name %></td>
-        <td><%= attendance_list.user %></td>
-        <td><%= link_to 'Show', attendance_list %></td>
-        <td><%= link_to 'Edit', edit_attendance_list_path(attendance_list) %></td>
-        <td><%= link_to 'Destroy', attendance_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= l attendance_list.openess %></td>
+        <td><%= l attendance_list.closure %></td>
+        <td><%= attendance_list.local %></td>
+        <td><%= l attendance_list.start %></td>
+        <td><%= link_to 'Mostrar', attendance_list %></td>
+        <% if current_user.admin %>
+          <td><%= link_to 'Editar', edit_attendance_list_path(attendance_list) %></td>
+          <td><%= link_to 'Destruir', attendance_list, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +36,42 @@
 
 <br>
 
-<%= link_to 'New Attendance List', new_attendance_list_path %>
+<% if current_user.admin %>
+  <%= link_to 'Criar nova partida', new_attendance_list_path %>
+<% end %>
+
+<br><br>
+
+<h1>Partidas com inscrições fechadas/canceladas</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Iníco das inscrições</th>
+      <th>Fechamento das inscrições</th>
+      <th>Local</th>
+      <th>Início da partida</th>
+      <% if current_user.admin %>
+        <th colspan="3"></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attendance_lists_close.each do |attendance_list| %>
+      <tr>
+        <td><%= attendance_list.name %></td>
+        <td><%= l attendance_list.openess %></td>
+        <td><%= l attendance_list.closure %></td>
+        <td><%= attendance_list.local %></td>
+        <td><%= l attendance_list.start %></td>
+        <td><%= link_to 'Mostrar', attendance_list %></td>
+        <% if current_user.admin %>
+          <td><%= link_to 'Editar', edit_attendance_list_path(attendance_list) %></td>
+          <td><%= link_to 'Destruir', attendance_list, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

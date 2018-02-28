@@ -12,26 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :openess %>
+    <%= f.label 'Abertura' %>
     <%= f.datetime_select :openess %>
   </div>
 
   <div class="field">
-    <%= f.label :closure %>
+    <%= f.label 'Fechamento' %>
     <%= f.datetime_select :closure %>
   </div>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label 'Titulo' %>
     <%= f.text_field :name %>
   </div>
-
+  
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.label 'Local' %>
+    <%= f.text_field :local %>
   </div>
-
+  
+  <div class="field">
+    <%= f.label 'Abertura' %>
+    <%= f.datetime_select :start %>
+  </div>
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Salvar', :class => 'button right' %>
   </div>
 <% end %>

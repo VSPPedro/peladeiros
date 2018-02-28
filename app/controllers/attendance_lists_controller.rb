@@ -5,7 +5,9 @@ class AttendanceListsController < ApplicationController
   # GET /attendance_lists
   # GET /attendance_lists.json
   def index
-    @attendance_lists = AttendanceList.all
+    #@attendance_lists = AttendanceList.all
+    @attendance_lists_open = AttendanceList.where('closure >= NOW()')
+    @attendance_lists_close = AttendanceList.where('closure < NOW()')
   end
 
   # GET /attendance_lists/1
