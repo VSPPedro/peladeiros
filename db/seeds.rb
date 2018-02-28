@@ -51,3 +51,15 @@ puts 'Inserindo usuários não aprovados por administradores'
 9.times do
     User.create!(email: Faker::Internet.email, name: Faker::Name.name, password: '123123', password_confirmation: '123123')
 end
+
+puts 'Inserindo usuário para teste'
+User.create!(email: 'teste@email.com', name: Faker::Name.name, password: '123123', password_confirmation: '123123')
+
+puts 'Inserindo lista de partidas com inscrições fechadas'
+AttendanceList.create!(openess: '2018-02-12 20:00:00', closure: '2018-02-18 20:00:00', name: 'Partida 01', local: 'IFPB - Jaguaribe', start: '2018-02-19 16:00:00')
+AttendanceList.create!(openess: '2018-02-20 20:00:00', closure: '2018-02-26 20:00:00', name: 'Partida 02', local: 'IFPB - Jaguaribe', start: '2018-02-27 16:00:00')
+
+puts 'Inserindo lista de partidas com inscrições abertas'
+AttendanceList.create!(openess: '2018-02-28 20:00:00', closure: '2018-03-06 20:00:00', name: 'Partida 03', local: 'IFPB - Jaguaribe', start: '2018-03-07 16:00:00')
+
+
