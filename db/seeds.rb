@@ -52,8 +52,9 @@ puts 'Inserindo usuários não aprovados por administradores'
     User.create!(email: Faker::Internet.email, name: Faker::Name.name, password: '123123', password_confirmation: '123123')
 end
 
-puts 'Inserindo usuário para teste'
-User.create!(email: 'teste@email.com', name: Faker::Name.name, password: '123123', password_confirmation: '123123')
+puts 'Inserindo usuário para testes'
+User.create!(email: 'teste1@email.com', name: Faker::Name.name, approved: true, password: '123123', password_confirmation: '123123')
+User.create!(email: 'teste2@email.com', name: Faker::Name.name, password: '123123', password_confirmation: '123123')
 
 puts 'Inserindo lista de partidas com inscrições fechadas'
 AttendanceList.create!(openess: '2018-02-12 20:00:00', closure: '2018-02-18 20:00:00', name: 'Partida 01', local: 'IFPB - Jaguaribe', start: '2018-02-19 16:00:00')
