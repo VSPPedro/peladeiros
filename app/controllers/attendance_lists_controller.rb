@@ -1,4 +1,5 @@
 class AttendanceListsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_attendance_list, only: [:show, :edit, :update, :destroy]
 
   # GET /attendance_lists
@@ -28,7 +29,7 @@ class AttendanceListsController < ApplicationController
 
     respond_to do |format|
       if @attendance_list.save
-        format.html { redirect_to @attendance_list, notice: 'Attendance list was successfully created.' }
+        format.html { redirect_to @attendance_list, notice: 'Lista de presença foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @attendance_list }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class AttendanceListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attendance_list_params
-      params.require(:attendance_list).permit(:openess, :closure, :name, :user_id)
+      params.require(:attendance_list).permit(:openess, :closure, :name, :user_id, :local, :start)
     end
 end
