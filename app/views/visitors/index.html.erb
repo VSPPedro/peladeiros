@@ -6,6 +6,17 @@
   <h4>A sua conta ainda não foi avaliada pelo administrador do sistema.</h4>
 <% end %>
 
-<% if user_signed_in? && current_user.admin%>
+<% if user_signed_in? && current_user.admin %>
   <br><%= link_to 'Quantidade de usuários pendentes:', users_path %> <%= @pending_users_count %>
+<% end %>
+
+<% if user_signed_in? && current_user.approved %>
+  <br><br><br>
+  <h3>Perfil</h3>
+  <p>Nome: <%= current_user.name if current_user.name %></p>
+  <p>Email: <%= current_user.email if current_user.email %></p>
+  
+  <% if current_user.campus %>
+    <p>Campus: <%= current_user.campus %></p>
+  <% end %>
 <% end %>
