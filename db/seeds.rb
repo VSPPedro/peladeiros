@@ -63,4 +63,7 @@ AttendanceList.create!(openess: '2018-02-20 20:00:00', closure: '2018-02-26 20:0
 puts 'Inserindo lista de partidas com inscrições abertas'
 AttendanceList.create!(openess: '2018-02-28 20:00:00', closure: '2018-03-06 20:00:00', name: 'Partida 03', local: 'IFPB - Jaguaribe', start: '2018-03-07 16:00:00')
 
-
+puts 'Inserindo usuários na partida com inscrições abertas'
+1.upto(17) do |i|
+    UsersAttendanceList.create!(user_id: i, attendance_list_id: 3)
+end
