@@ -18,10 +18,8 @@ ActiveRecord::Schema.define(version: 20180228014345) do
     t.string   "name"
     t.string   "local"
     t.datetime "start"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_attendance_lists_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,5 +43,4 @@ ActiveRecord::Schema.define(version: 20180228014345) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "attendance_lists", "users"
 end

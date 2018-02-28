@@ -6,7 +6,6 @@ class CreateAttendanceLists < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :local
       t.datetime :start
-      t.references :user, foreign_key: true
 
       t.timestamps
     end
